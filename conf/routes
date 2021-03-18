@@ -1,0 +1,17 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET        /                             controllers.Application.index
+GET        /dougtable/:col               controllers.Application.table(col: Int)
+GET        /form                         controllers.Application.login
+GET        /validate                     controllers.Application.validateEntry(name: String, color: String)
+GET         /graph                      controllers.Application.viewStudent
+
++nocsrf
+POST       /validatePost                  controllers.Application.validatePost
+
+# Prefix must match `play.assets.urlPrefix`
+GET        /assets/*file                 controllers.Assets.at(file)
+GET        /versionedAssets/*file        controllers.Assets.versioned(path="/public", file: Asset)

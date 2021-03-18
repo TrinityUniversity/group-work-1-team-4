@@ -1,0 +1,22 @@
+@(data: Seq[Team])
+
+@main("NBA Teams"){
+  <h1>NBA Teams</h1>
+  <table>
+    <thead>
+      <tr>@for((h, i) <- DougStatData.header.zipWithIndex) { 
+        <th><a href='@routes.Application.table(i)'>@h</a></th> 
+      }</tr>
+    </thead>
+    <tbody>
+      @for(team <- data) {
+        <tr>
+          <td>team.name</td>
+          @for(stat <- team.stats) {
+            <td>@stat</td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+}
